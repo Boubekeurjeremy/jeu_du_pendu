@@ -1,0 +1,36 @@
+{% extends 'layout.html' %}
+
+
+{% block title %}Accueil | Jeu du pendu{% endblock %}
+
+{% block content %}
+<main>
+<article class="home">
+<div class="home__block">
+<iframe src="{{ url_for('static', filename='assets/video_page_home_arbre.mp4') }}" title="home" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<form class="home__form" action="/" method="post" id="myForm">
+  <div class="home__form__input">
+    
+    <input class="home__form__input__text" type="text" id="nom_user" name="nom_user" placeholder=" Entrer votre nom " oninput="hideErrorMessage()">
+    
+  </div>
+
+  {% if erreur %}
+  <p class="home__form__error" id="erreurMessage">{{ erreur }}</p>
+  {% endif %}
+
+  <div class="home__form__button">
+      <button class="home__form__button__submit" type="submit" id="startButton">Démarrer partie<i class="fa-solid fa-check"></i></button>
+   </div>
+
+</div>
+</article>
+  </main>
+
+  <script>
+    function hideErrorMessage() {
+      document.getElementById('erreurMessage').style.display = 'none';
+    }
+    </script>
+  {% endblock %}

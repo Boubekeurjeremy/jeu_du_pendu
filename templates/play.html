@@ -1,0 +1,62 @@
+{% extends 'layout.html' %}
+
+{% block title %}Jeu | Jeu du pendu{% endblock %}
+
+{% block content %}
+<main>
+    <section class="play">
+    <article class="play__potence">
+        
+            
+    
+        <img class="play__potence__img"src="{{ url_for('static', filename='assets/Arbre_potence.jpg') }}" alt="Logo arbre"></img> 
+       <div>
+    <div class="lineOne">{{ potence[0] }}</div>
+    <div class="lineTwo">{{ potence[1] }}</div>
+    <div class="lineThree">{{ potence[2] }}</div>
+    <div class="lineFour">{{ potence[3] }}</div>
+    <div class="circle">{{ potence[4] }}</div>
+</div>
+        
+    </article>
+    <article class="play__info">
+    <div class="play__info__nav">
+        <p class="play__info__nav__name">Joueur : {{nom}}</p>
+        <p class="play__info__nav__life">{{info_vies}} : <span class="play__info__nav__life__number">{{vies}}</span>/ 5 </p>
+       
+    </div>
+   <div class="play__info__mot">
+    <p class="play__info__mot__end">{{message_fin_jeu | safe}}</p>
+    {% if message_fin_jeu %}
+                <form action="/recommencer-partie" method="get">
+                    <button class="play__info__mot__rejouer" type="submit">Recommencer partie<i class="fa-solid fa-check"></i></button>
+                </form>
+            {% else %}
+                <p class="play__info__mot__cache">{{mot_en_cache}}</p>
+                {% endif %}
+    
+   
+</div>
+</article>
+
+    
+</section>
+<article class="play__clavier">
+    
+    
+        <span class="play__clavier__name">Microsoft Surface</span>
+    <form  action="/play?nom={{ nom }}" method="post">
+        
+        {% for letter in alphabet %}
+            <input type="submit" class="play__clavier__lettre" name="lettre" value="{{ letter }}">
+        {% endfor %}
+    
+    </form>
+    
+
+
+</article>
+
+</main>
+
+{% endblock %}

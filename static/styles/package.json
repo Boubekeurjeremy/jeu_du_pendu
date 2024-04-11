@@ -1,0 +1,18 @@
+{
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "sass --watch style.scss style.css",
+    "prefix": "postcss style.css --use autoprefixer -d prefix/"
+  },
+  "author": "Boubekeur Jeremy",
+  "license": "ISC",
+  "browserslist": "last 4 versions",
+  "devDependencies": {
+    "sass": "^1.74.1"
+  },
+  "dependencies": {
+    "autoprefixer": "^10.4.19",
+    "browserlist": "^1.0.1",
+    "postcss": "^8.4.38"
+  }
+}

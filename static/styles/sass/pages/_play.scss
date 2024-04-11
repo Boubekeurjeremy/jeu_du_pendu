@@ -1,0 +1,201 @@
+
+.play__potence{
+    margin: auto;
+    position: relative;
+    width: 25em;
+    height: 24em;
+    background-color: $back_color_body;
+    border: 1px inset $color_first;
+    box-shadow: 3px 3px 3px $color_first;
+    border-radius: 2em;
+    &__img{
+        margin: auto;
+        margin-top: 2em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 22em;
+        height: 22em;
+        border-radius: 2em;
+    }
+}
+.play__potence div {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    font-size : 100px;
+    margin: 0;
+    color: $color_potence;
+    animation-duration: 3s;
+    animation-name: glissement;
+    animation-iteration-count: infinite;
+}
+
+.play__potence .lineOne {
+    bottom: 0;
+    right: 30px;
+  
+}
+
+
+.play__potence .lineTwo {   
+    bottom: 100px;
+    right: 30px; 
+}
+
+.play__potence .lineThree { 
+    bottom: 200px;
+    right: 30px; 
+}
+
+.play__potence .lineFour {
+    bottom: 250px;
+    left: 16px;
+}
+
+.play__potence .circle {  
+    margin: 0 auto;
+    animation: rotation 3s infinite linear;
+    bottom: 175px; 
+    left: 60px;
+    
+   
+}
+.play{
+    max-width: 1000px;
+    margin: 3em auto ; 
+    padding: 1em;
+    height: 25em;
+    display: flex;   
+    align-items: center;      
+    background-color: $back_color_body;
+    border: 1px inset $back_color_first;
+    box-shadow: 3px 3px 3px $color_first;
+    border-radius: 1em;
+   
+    &__clavier{
+        margin: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        width: 816px;
+        height: 10em;       
+        border-radius: 25px;  
+        background-color: $back_color_body;
+        border: 1px inset $back_color_first;
+        box-shadow: 3px 3px 3px $color_first;
+        border-radius: 1em;
+       
+                &__name{
+                    margin-bottom: -20px;
+                    color: $text_color_first;
+                    text-align: center;
+                    @include font_family;
+                    @include font_weight;
+                }                           
+                &__lettre{                  
+                    border: 1px inset $back_color_first;
+                    box-shadow: 3px 3px 3px $color_first;
+                    border-radius: 50%;
+                    margin: 0.25em 0 0.25em 0.60em;
+                    width: 1.5em;
+                    text-align: center;                   
+                    font-size : 1.7em;                   
+                    @include font_family;
+                    @include font_weight;
+                    background-color: black;
+                    color: $text_color_first;
+                    &:hover{
+                        cursor: pointer;
+                        color: $color_hover;
+                        background-color: $back_color_first;
+
+                    }
+                }
+            
+        
+    }
+    &__info{
+        border-radius: 2em;   
+        background-color : $back_color_body;  
+        box-shadow: 1px 2px 2px 5px $color_first;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: black;       
+        height: 24em;
+        width: 25em;
+        &__mot{
+            margin: auto;
+            display: flex;
+            flex-direction:column;
+            align-items: center;
+            justify-content: center;
+            @include font_family;
+            @include font_weight;
+            &__rejouer{
+                font-size:17px;
+                @include font-family;
+                background-color:$back_color_body;
+                box-shadow: 1px 2px 2px 2px darkgray;                            
+                padding: 0.20em 0.85em;
+                border-radius : 50%;
+                color: $text_color_button;
+                @include icone_button;
+                }
+            
+            &__end{
+                margin: 0.5em;
+                text-align: center;
+                @include font_weight;
+                @include font_family;
+                font-size: 23.5px;
+                color: $color_hover;}
+            &__cache{
+                margin: auto;              
+                padding: 0;              
+                color: $text_color_first;
+                font-size: 55px;             
+            }
+        }
+        &__nav{   
+            width: 16em;  
+            background-color : black;
+            border: 5px inset $color_first;
+            box-shadow: 5px 5px 5px $color_first;
+            border-radius: 2em;   
+            @include font_weight;
+            display:flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-top: 1em;
+            padding: 1em;
+            animation: playAnimation infinite alternate;
+            animation-duration: 8s;
+            &__name{       
+                color: $text_color_first;
+                margin: 5px;
+                padding: 0;
+                font-size: 25px;
+                @include font_weight;
+                @include font_family;}
+                &__life{
+                color: $text_color_first;
+                margin: 5px;
+                padding: 0;
+                font-size: 25px;
+                @include font_weight;
+                @include font_family;
+    
+                &__number{
+                font-size: 30px;
+                margin: 0 0.25em;
+                color: $color_hover;
+        }
+    }
+   
+}}}
