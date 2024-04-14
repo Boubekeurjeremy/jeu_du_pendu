@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for, session
 import random
 
 app = Flask(__name__)
-app.secret_key = 'JBBreakingBad2024' 
+app.secret_key = "Rendu_Du_Groupe3_CI_Intro_Programmation"
 
 #############
 
@@ -16,28 +16,9 @@ def lire_fichier(dictionnaire):
 
 ###############
 
-def mot_cache():
-    mot_cache = ""
-    for lettre_mot, lettre_trouvee in zip(mot_aleatoire, chaine_nettoyee):
-        if lettre_trouvee in lettres_recues:
-            mot_cache += lettre_mot
-        else:
-            mot_cache += " _ "
-   
-    return mot_cache
-
-##############
-
-def nettoyer_chaine(chaine, caracteres_speciaux):
-    for special, origine in caracteres_speciaux.items():
-        chaine = chaine.replace(special, origine)
-    return chaine
-
-
-#############
-
 donnees_recuperees = lire_fichier('dictionnaire.txt')
 mot_aleatoire = random.choice(donnees_recuperees)[1][0]
+
 print(f"Le mot aleatoire commencer partie est : {mot_aleatoire}")
 
 caracteres_speciaux = {
@@ -55,8 +36,6 @@ caracteres_speciaux = {
     "ù": "u",
     "ç": "c",
 }
-
-chaine_nettoyee = nettoyer_chaine(mot_aleatoire, caracteres_speciaux)
 message_fin_jeu= ""
 lettres_recues = []
 vies = 5
@@ -64,8 +43,37 @@ potence = []
 elements_pendu = ["│", "│", "│", "─", "👿"]
 info_vies = "Vies"
 
+#################
+
+
+def nettoyer_chaine(chaine, caracteres_speciaux):
+    for special, origine in caracteres_speciaux.items():
+        chaine = chaine.replace(special, origine)
+    return chaine
+
+
+###############
+
+chaine_nettoyee = nettoyer_chaine(mot_aleatoire, caracteres_speciaux)
+
+###############
+
+def mot_cache():
+    mot_cache = ""
+    for lettre_mot, lettre_trouvee in zip(mot_aleatoire, chaine_nettoyee):
+        if lettre_trouvee in lettres_recues:
+            mot_cache += lettre_mot
+        else:
+            mot_cache += " _ "
+   
+    return mot_cache
+
+
 ####################
+
 @app.route("/")
+
+####################
 
 @app.route("/", methods=["GET","POST"])
 def home():
@@ -79,7 +87,7 @@ def home():
             return redirect(url_for("play", nom=nom))  
     return render_template('home.html', erreur=erreur, nom=nom)
 
-############
+##################
 
 @app.route("/recommencer-partie", methods=["GET"])
 def recommencer_partie():
@@ -96,7 +104,7 @@ def recommencer_partie():
     nom = session.get("nom")
     return redirect(f"/play?nom={nom}")
 
-#############
+#################
     
 @app.route("/play", methods=["GET", "POST"])
 def play():  
@@ -150,7 +158,7 @@ def play():
                         message_fin_jeu = f'Désolé, vous avez perdu.<br>Le mot était : <br>" {mot_aleatoire} ".'
 
                         return render_template("play.html",potence=potence, message_fin_jeu=message_fin_jeu, vies=vies, lettre=lettres_recues, nom=nom,        
-                                       alphabet=alphabet, mot_en_cache=mot_en_cache, mot_aleatoire=mot_aleatoire, info_vies=info_vies)
+                                       alphabet=alphabet, mot_en_cache=mot_en_cache, info_vies=info_vies)
         mot_en_cache = mot_cache() 
 
     # Vérifie si le joueur a trouvé le mot
@@ -159,11 +167,11 @@ def play():
                 message_fin_jeu = f'Félicitations, vous avez gagné !<br>Le mot était : <br>" {mot_aleatoire} ".'
 
                 return render_template("play.html",potence=potence, message_fin_jeu=message_fin_jeu, vies=vies, lettre=lettres_recues, nom=nom,
-                                   alphabet=alphabet, mot_en_cache=mot_en_cache, mot_aleatoire=mot_aleatoire, info_vies=info_vies)
+                                   alphabet=alphabet, mot_en_cache=mot_en_cache, info_vies=info_vies)
  
     mot_en_cache = mot_cache()  
     return render_template("play.html",potence=potence, message_fin_jeu=message_fin_jeu, vies=vies, lettre=lettres_recues, nom=nom,
-                           alphabet=alphabet, mot_en_cache=mot_en_cache, mot_aleatoire=mot_aleatoire, info_vies=info_vies)
+                           alphabet=alphabet, mot_en_cache=mot_en_cache, info_vies=info_vies)
     
 
 

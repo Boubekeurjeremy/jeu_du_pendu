@@ -73,6 +73,7 @@
     box-shadow: 3px 3px 3px $color_first;
     border-radius: 1em;
    
+   
     &__clavier{
         margin: auto;
         display: flex;
@@ -93,6 +94,7 @@
                     text-align: center;
                     @include font_family;
                     @include font_weight;
+                  
                 }                           
                 &__lettre{                  
                     border: 1px inset $back_color_first;
@@ -128,6 +130,7 @@
         background-color: black;       
         height: 24em;
         width: 25em;
+      
         &__mot{
             margin: auto;
             display: flex;
@@ -173,16 +176,22 @@
             justify-content: center;
             align-items: center;
             margin-top: 1em;
-            padding: 1em;
+            padding: 1em;          
             animation: playAnimation infinite alternate;
             animation-duration: 8s;
-            &__name{       
+            
+            &__name{  
+                width: 10.5em;     
                 color: $text_color_first;
                 margin: 5px;
-                padding: 0;
+                text-align: center;
                 font-size: 25px;
                 @include font_weight;
-                @include font_family;}
+                @include font_family;                
+                white-space:nowrap;
+                overflow: hidden;
+                text-overflow:ellipsis;
+            }
                 &__life{
                 color: $text_color_first;
                 margin: 5px;
