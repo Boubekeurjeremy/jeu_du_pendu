@@ -1,0 +1,39 @@
+body
+    background-color: $back_color_body
+    border: 2px inset $color_first
+    box-shadow: 5px 5px 5px $back_color_first
+    @include max_width_auto
+    border-radius: 1em
+    margin-bottom: 3em
+
+.header
+    &__nav
+        margin: auto
+        max-width: 1250px
+        padding: 0.4em
+        display: flex
+        align-items: center
+        justify-content: space-around
+        background-color: $back_color_first
+        border: 1px inset $back_color_first
+        box-shadow: 3px 3px 3px $color_first
+        border-radius: 1em
+
+        &__logo
+            border-radius: 50%
+            width: 80px
+            height: 70px
+
+        &__logo__pendu
+            animation: logo infinite alternate-reverse
+            animation-duration: 6s
+            display: flex
+            align-items: center
+            border-radius: 50%
+            width: 18em
+            height: 70px
+            background-size: cover
+            &:hover
+                animation: none
+                cursor: pointer
+                box-shadow: 3px 2px 3px $color_hover

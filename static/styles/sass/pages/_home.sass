@@ -1,0 +1,62 @@
+.home
+    @include max_width_auto
+    margin: auto
+    margin-top: 3em
+    width: 768px
+    height: 32em
+    background-color: $back_color_body
+    box-shadow: 1px 2px 2px 5px $color_first
+    border-radius: 2em
+    color: $color_first
+    @include font_weight
+    @include home_display
+    animation: homeAnimation infinite alternate
+    animation-duration: 6s
+    &:hover
+        animation: homeAnimation none
+
+    &__block
+        padding: 0
+        width: 35em
+        height: 27em
+        background-color: $back_color_first
+        box-shadow: 1px 2px 5px 3px $text_color_button
+        border-radius: 2em
+        color: $color_first
+        @include font_weight
+        @include home_display
+        video
+            border-radius: 1em
+            width: 35em
+            height: 15em
+            margin-bottom: 15px
+
+    &__form
+        @include home_display
+        &__error
+            margin: 0 0 10px 0
+            color: $color_hover
+            font-size: 19px
+            @include font_family
+
+        &__input
+            @include home_display
+            &__text
+                @include font_weight
+                @include font_family
+                text-align: center
+                font-size: 20px
+                box-shadow: 1px 1px 1px 1px $text_color_button
+                margin-bottom: 15px
+                border-radius: 0.3em
+                color: black
+
+        &__button
+            &__submit
+                font-size: 20px
+                @include font-family
+                background-color: black
+                padding: 0.20em 0.85em
+                border-radius: 50%
+                color: $text_color_button
+                @include icone_button
