@@ -124,35 +124,31 @@ def play():
     alphabet = [chr(i) for i in range(ord("a"), ord("z") + 1)]
     nom = request.args.get("nom")
     session["nom"] = nom
+
     if request.method == "POST":
         lettre_recue = request.form["lettre"]
         nom = session.get("nom", None)
 
         # Vérifie si la lettre est déjà dans la liste.
-
         if lettre_recue in lettres_recues:
             print(f"La lettre {lettre_recue} a déjà été utilisée.")
 
         # Vérifie si la lettre n'est pas dans l'alphabet.
-
         elif lettre_recue not in alphabet:
             print(f"La lettre {lettre_recue} n'est pas dans l'alphabet.")
+
         else:
-
             # Ajoute la lettre tapée à la liste lettres_recues.
-
             lettres_recues.append(lettre_recue)
             if lettre_recue in chaine_nettoyee:
                 print(f"La lettre {lettre_recue} est dans le mot aléatoire")
 
                 # Occurrences trouvées de la lettre.
-
                 for index, lettre in enumerate(chaine_nettoyee):
                     if lettre == lettre_recue:
                         print(f"Lettre : {lettre} (Position : {index + 1})")
 
             # Vérifie si la lettre n'est pas dans le mot aléatoire.
-
             else:
                 print(f"La lettre {lettre_recue} n'est pas dans le mot aléatoire")
                 potence.append(elements_pendu[5 - vies])
@@ -163,9 +159,7 @@ def play():
                     info_vies = f"Vie"
 
                 # Partie perdu
-
                 if vies <= 0:
-
                     message_fin_jeu = f'Désolé, vous avez perdu.<br>Le mot était : <br>" {mot_aleatoire} ".'
 
                     return render_template(
