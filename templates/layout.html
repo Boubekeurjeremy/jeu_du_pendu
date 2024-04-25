@@ -13,8 +13,18 @@
 </head>
 
 <body>
-  {% include 'header.html' %} {% block content %} {% endblock %} {% include
-  'footer.html' %}
+  {% include 'header.html' %}
+  {% block content %} {% endblock %}
+  {% include 'footer.html' %}
+
+  <script>
+    function hideErrorMessage() {
+      const errorMsg = document.getElementById('erreurMessage');
+      if (errorMsg) {
+        errorMsg.style.display = 'none';
+      }
+    }
+  </script>
 </body>
 
 </html>
