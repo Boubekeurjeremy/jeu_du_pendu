@@ -126,12 +126,12 @@ body {
   box-shadow: 3px 3px 3px #4d036d;
   border-radius: 1em;
 }
-.header__nav__logo {
+.header__logo {
   border-radius: 50%;
   width: 80px;
   height: 70px;
 }
-.header__nav__logo__pendu {
+.header__logo__pendu {
   animation: logo infinite alternate-reverse;
   animation-duration: 6s;
   display: flex;
@@ -141,7 +141,7 @@ body {
   height: 70px;
   background-size: cover;
 }
-.header__nav__logo__pendu:hover {
+.header__logo__pendu:hover {
   animation: none;
   cursor: pointer;
   box-shadow: 3px 2px 3px yellow;
@@ -293,7 +293,6 @@ body {
   height: 22em;
   border-radius: 2em;
 }
-
 .play__potence div {
   position: absolute;
   width: 100%;
@@ -305,27 +304,22 @@ body {
   animation-name: glissement;
   animation-iteration-count: infinite;
 }
-
 .play__potence .lineOne {
   bottom: 0;
   right: 30px;
 }
-
 .play__potence .lineTwo {
   bottom: 100px;
   right: 30px;
 }
-
 .play__potence .lineThree {
   bottom: 200px;
   right: 30px;
 }
-
 .play__potence .lineFour {
   bottom: 250px;
   left: 16px;
 }
-
 .play__potence .circle {
   margin: 0 auto;
   animation: rotation 3s infinite linear;
@@ -366,7 +360,7 @@ body {
   font-family: "Luckiest Guy";
   font-weight: 500;
 }
-.play__clavier__lettre {
+.play__clavier__name__lettre {
   border: 1px inset #403e3e;
   box-shadow: 3px 3px 3px #4d036d;
   border-radius: 50%;
@@ -379,7 +373,7 @@ body {
   background-color: black;
   color: darkgoldenrod;
 }
-.play__clavier__lettre:hover {
+.play__clavier__name__lettre:hover {
   cursor: pointer;
   color: yellow;
   background-color: #403e3e;
@@ -470,7 +464,6 @@ body {
   margin: 5px;
   text-align: center;
   font-size: 25px;
-  font-weight: 500;
   font-family: "Luckiest Guy";
   white-space: nowrap;
   overflow: hidden;
