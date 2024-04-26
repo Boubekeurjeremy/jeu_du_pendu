@@ -1,8 +1,18 @@
+from dotenv import load_dotenv
 from flask import Flask, render_template, request, redirect, url_for, session
 import random
+import os
+################
+
+# Charger les variables d'environnement à partir du fichier .env
+load_dotenv()
 
 app = Flask(__name__)
-app.secret_key = "Rendu_Du_Groupe3_CI_Intro_Programmation"
+
+# Utiliser la clé secrète
+app.secret_key = os.environ.get('SECRET_KEY')
+
+print(app.secret_key)
 
 #############
 

@@ -135,3 +135,39 @@ Par la suite, on redémmare le serveur :
 ```shell
 flask --app server run
 ```
+########################
+1. Installation de python-dotenv pour la gestion des variables d'environnement
+Pour gérer les variables d'environnement de manière sécurisée dans votre application Flask, nous utilisons python-dotenv. Suivez ces étapes pour l'installer :
+
+Installation avec pip
+Assurez-vous d'avoir Python et pip installés sur votre système. Ensuite, utilisez pip pour installer python-dotenv en exécutant la commande suivante dans votre terminal :
+``` shell
+pip install python-dotenv
+```
+
+2. Création du fichier .env
+Après avoir installé python-dotenv, créez un fichier .env à la racine de votre projet. C'est là que vous stockerez vos variables d'environnement sensibles, telles que les clés secrètes.
+
+Voici un exemple de contenu pour votre fichier .env :
+```shell
+SECRET_KEY=VOTRE_CLÉ_SECRÈTE_ICI
+```
+Remplacez VOTRE_CLÉ_SECRÈTE_ICI par votre clé secrète réelle.
+
+3. Utilisation dans votre application Flask
+Dans votre application Flask, utilisez dotenv pour charger les variables d'environnement à partir du fichier .env que vous venez de créer. Voici un exemple de code : 
+```shell
+from dotenv import load_dotenv
+import os
+
+# Charger les variables d'environnement à partir du fichier .env
+load_dotenv()
+
+app = Flask(__name__)
+
+# Utiliser la clé secrète
+app.secret_key = os.environ.get('SECRET_KEY')
+
+print(app.secret_key)
+
+```

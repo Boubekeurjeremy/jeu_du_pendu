@@ -14,13 +14,19 @@
     />
     <link
       rel="stylesheet"
-      href="{{ url_for('static', filename='styles/prefix/style.css') }}"
+      href="{{ url_for('static', filename='styles/style.css') }}"
     />
 
     <title>Jeu du pendu</title>
   </head>
   <body>
-    {% include 'header.html' %} {% block content %} {% endblock %} {% include
-    'footer.html' %}
+    {% include 'header.html' %} 
+    {% block content %} {% endblock %} 
+    {% include 'footer.html' %}
+    <script>
+      function hideErrorMessage() {
+        document.getElementById('erreurMessage').style.display = 'none';
+      }
+      </script>
   </body>
 </html>
